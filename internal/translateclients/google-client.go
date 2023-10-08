@@ -10,11 +10,13 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 var errGoogleClient = errors.New("google-client")
 
 const (
+	googleClientTimeout    = 1 * time.Second
 	googleTranslateBaseURL = "https://translate.googleapis.com/translate_a/single"
 
 	googleDtTranslateT  = "t"  // Translation of source.
@@ -37,7 +39,7 @@ type GoogleTranslateClient struct {
 
 func NewGoogleTranslateClient() *GoogleTranslateClient {
 	client := new(GoogleTranslateClient)
-	client.httpclient = &http.Client{}
+	client.httpclient = &http.Client{Timeout: googleClientTimeout}
 
 	clientURL, err := url.Parse(googleTranslateBaseURL)
 	if err != nil {
