@@ -1,0 +1,62 @@
+run:
+  go: "1.21.1"
+
+linters:
+  enable-all: true
+  disable:
+    # Complexity, don't need this
+    - gocognit
+
+    # Allow and block go dependencies, don't need this.
+    - gomodguard
+    - depguard
+
+    # Validating tags according to rules, don't need this.
+    - tagliatelle
+
+    # Cyclomatic complexity, don't need this
+    - gocyclo
+
+    # Parallel tests, don't need this.
+    - paralleltest
+
+    # Functions length, don't need this.
+    - funlen
+
+    # Default values is ok.
+    - exhaustruct
+
+    # TODO, FIXME is ok.
+    - godox
+
+    # Short name vars acceptable for user types.
+    - varnamelen
+
+    # Deprecated.
+    - deadcode
+    - maligned
+    - exhaustivestruct
+    - cyclop
+    - structcheck
+    - nosnakecase
+    - interfacer
+    - scopelint
+    - varcheck
+    - ifshort
+    - golint
+    - deadcode
+    - exhaustivestruct
+    - exhaustruct
+    - funlen
+    - golint
+    - ifshort
+    - interfacer
+    - maligned
+    - nlreturn
+    - nosnakecase
+    - paralleltest
+    - scopelint
+    - structcheck
+    - tagliatelle
+    - varcheck
+    - varnamelen
