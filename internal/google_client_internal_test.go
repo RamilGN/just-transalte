@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestTranslate(t *testing.T) {
+func Test_googleTranslateClient_translate(t *testing.T) {
 	ctx := context.Background()
 
 	httpClient := NewTestClient(func(req *http.Request) *http.Response {

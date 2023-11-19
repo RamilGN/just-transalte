@@ -43,9 +43,15 @@ type Translator struct {
 	languagePair       LanguagePair
 }
 
-func NewTranslator(languagePair LanguagePair) *Translator {
+func NewTranslator(translateClient TranslateClient, languagePair LanguagePair) *Translator {
 	translator := new(Translator)
-	translator.client = newGoogleTranslateClient(nil)
+
+	if translateClient == nil {
+		translator.client = newGoogleTranslateClient(nil)
+	} else {
+		translator.client = translateClient
+	}
+
 	translator.availableLanguages = languages()
 	translator.languagePair = languagePair
 

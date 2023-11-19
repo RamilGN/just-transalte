@@ -24,7 +24,7 @@ func main() {
 	flag.StringVar(&text, "t", "", "text")
 	flag.Parse()
 
-	translator := internal.NewTranslator(internal.LanguagePair{
+	translator := internal.NewTranslator(nil, internal.LanguagePair{
 		Lang1: internal.Language(language1),
 		Lang2: internal.Language(language2),
 	})
